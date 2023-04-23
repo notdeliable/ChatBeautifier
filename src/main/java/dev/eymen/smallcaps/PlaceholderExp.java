@@ -38,7 +38,7 @@ public class PlaceholderExp extends PlaceholderExpansion {
 				if (givenInput[1] == null || givenInput[1].trim().isEmpty()) {
 					return "No argument provided.";
 				} else {
-					return Alphabet.convertAlphabet(givenInput[1]);
+					return Alphabet.convert(givenInput[1]);
 				}
 			} else {
 				return "No argument provided.";
