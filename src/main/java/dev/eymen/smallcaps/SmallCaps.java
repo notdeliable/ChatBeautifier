@@ -13,7 +13,7 @@ public final class SmallCaps extends JavaPlugin {
 			new PlaceholderExp(this).register();
 			getLogger().info("Registered placeholders.");
 		}
-		getCommand("smallcaps").setExecutor(this);
+		getCommand("smallcaps").setExecutor(new CapsCommand());
 		getLogger().info("Registered commands.");
 		int pluginId = 18278;
 		Metrics metrics = new Metrics(this, pluginId);
