@@ -2,6 +2,7 @@ package dev.eymen.smallcaps;
 
 import net.md_5.bungee.api.chat.ClickEvent;
 import net.md_5.bungee.api.chat.TextComponent;
+import org.bstats.bukkit.Metrics;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
@@ -38,6 +39,8 @@ public final class SmallCaps extends JavaPlugin implements CommandExecutor {
         }
         getCommand("smallcaps").setExecutor(this);
         getLogger().info("Registered commands.");
+        int pluginId = 18278;
+        Metrics metrics = new Metrics(this, pluginId);
     }
 
     @Override
