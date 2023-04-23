@@ -33,7 +33,6 @@ public class PlaceholderExp extends PlaceholderExpansion {
     @Override
     public String onRequest(OfflinePlayer player, String params) {
         String[] givenInput = params.split("_");
-        if (params.)
         if (givenInput[0].equalsIgnoreCase("convert")) {
             if (givenInput.length > 1) {
                 if (givenInput[1] == null || givenInput[1].trim().isEmpty()) {
