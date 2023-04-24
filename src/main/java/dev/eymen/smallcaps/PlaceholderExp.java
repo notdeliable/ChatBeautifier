@@ -5,12 +5,6 @@ import me.clip.placeholderapi.expansion.PlaceholderExpansion;
 import org.bukkit.OfflinePlayer;
 
 public class PlaceholderExp extends PlaceholderExpansion {
-	private final SmallCaps pl;
-
-	public PlaceholderExp(SmallCaps pl) {
-		this.pl = pl;
-	}
-
 	@Override
 	public String getAuthor() {
 		return "Deliable";

@@ -18,6 +18,6 @@ public class Alphabet {
 				output.append(currentChar);
 			}
 		}
-		return Utils.color(output.toString());
+		return output.toString();
 	}
 }

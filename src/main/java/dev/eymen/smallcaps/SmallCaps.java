@@ -11,7 +11,7 @@ public final class SmallCaps extends JavaPlugin {
 		getLogger().info("Hey there!");
 		if (Bukkit.getPluginManager().getPlugin("PlaceholderAPI") != null) {
 			getLogger().info("PlaceholderAPI found, registering placeholders.");
-			new PlaceholderExp(this).register();
+			new PlaceholderExp().register();
 			getLogger().info("Registered placeholders.");
 		}
 		getCommand("smallcaps").setExecutor(new CapsCommand());
