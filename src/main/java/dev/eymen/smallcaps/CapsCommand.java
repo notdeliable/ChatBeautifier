@@ -26,14 +26,14 @@ public class CapsCommand implements CommandExecutor {
 		String convertedSentence;
 		if (sender instanceof Player) {
 			Player player = (Player) sender;
-			convertedSentence = PlaceholderAPI.setPlaceholders(player, Alphabet.convert(givenInput));
+			convertedSentence = Alphabet.convert(PlaceholderAPI.setPlaceholders(player, givenInput));
 			TextComponent message = new TextComponent(ChatColor.GREEN + "Click to get converted message to your message box!");
 			message.setClickEvent(new ClickEvent(ClickEvent.Action.SUGGEST_COMMAND, convertedSentence));
 			player.spigot().sendMessage(message);
 			player.sendMessage("\n\n" + ChatColor.GREEN + "Here is your converted message: " + ChatColor.RESET + convertedSentence);
 			return true;
 		}
-		convertedSentence = PlaceholderAPI.setPlaceholders(null, Alphabet.convert(givenInput));
+		convertedSentence = Alphabet.convert(PlaceholderAPI.setPlaceholders(null, givenInput));
 		sender.sendMessage(ChatColor.GREEN + "Here is your converted message: " + ChatColor.RESET + convertedSentence);
 		return true;
 	}
