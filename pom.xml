@@ -6,7 +6,7 @@
 
     <groupId>dev.eymen</groupId>
     <artifactId>SmallCaps</artifactId>
-    <version>1.0.3-STABLE</version>
+    <version>1.0.4-BETA</version>
     <packaging>jar</packaging>
 
     <name>SmallCaps</name>
