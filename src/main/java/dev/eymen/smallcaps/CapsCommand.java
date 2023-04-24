@@ -1,5 +1,6 @@
 package dev.eymen.smallcaps;
 
+import me.clip.placeholderapi.PlaceholderAPI;
 import net.md_5.bungee.api.chat.ClickEvent;
 import net.md_5.bungee.api.chat.TextComponent;
 import org.bukkit.ChatColor;
@@ -22,15 +23,17 @@ public class CapsCommand implements CommandExecutor {
 			return false;
 		}
 		String givenInput = String.join(" ", args).trim();
-		String convertedSentence = Alphabet.convert(givenInput);
+		String convertedSentence;
 		if (sender instanceof Player) {
 			Player player = (Player) sender;
+			convertedSentence = PlaceholderAPI.setPlaceholders(player, Alphabet.convert(givenInput));
 			TextComponent message = new TextComponent(ChatColor.GREEN + "Click to get converted message to your message box!");
 			message.setClickEvent(new ClickEvent(ClickEvent.Action.SUGGEST_COMMAND, convertedSentence));
 			player.spigot().sendMessage(message);
 			player.sendMessage("\n\n" + ChatColor.GREEN + "Here is your converted message: " + ChatColor.RESET + convertedSentence);
 			return true;
 		}
+		convertedSentence = PlaceholderAPI.setPlaceholders(null, Alphabet.convert(givenInput));
 		sender.sendMessage(ChatColor.GREEN + "Here is your converted message: " + ChatColor.RESET + convertedSentence);
 		return true;
 	}

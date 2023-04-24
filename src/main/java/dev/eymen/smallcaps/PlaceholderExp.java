@@ -1,5 +1,6 @@
 package dev.eymen.smallcaps;
 
+import me.clip.placeholderapi.PlaceholderAPI;
 import me.clip.placeholderapi.expansion.PlaceholderExpansion;
 import org.bukkit.OfflinePlayer;
 
@@ -32,7 +33,8 @@ public class PlaceholderExp extends PlaceholderExpansion {
 
 	@Override
 	public String onRequest(OfflinePlayer player, String params) {
-		String[] givenInput = params.split("_");
+		String parsedParams = PlaceholderAPI.setBracketPlaceholders(player, params);
+		String[] givenInput = parsedParams.split("_", 2);
 		if (givenInput[0].equalsIgnoreCase("convert")) {
 			if (givenInput.length > 1) {
 				if (givenInput[1] == null || givenInput[1].trim().isEmpty()) {
