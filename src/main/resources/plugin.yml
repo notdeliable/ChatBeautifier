@@ -9,5 +9,3 @@ softdepend: [PlaceholderAPI]
 commands:
   smallcaps:
     description: Convert normal sentences to small caps sentences
-    usage: /smallcaps <sentence>
-    aliases: [convertsmallcaps, smallcapsconvert, smallcapsconverter]

@@ -3,7 +3,7 @@ package dev.eymen.smallcaps;
 import org.jetbrains.annotations.NotNull;
 
 public class Alphabet {
-	
+
     private static final char[] REPLACEMENT_ALPHABET = "ᴀʙᴄᴅᴇꜰɢʜɪᴊᴋʟᴍɴᴏᴘǫʀsᴛᴜᴠᴡxʏᴢ".toCharArray();
 
     public static String convert(@NotNull String input) {
@@ -13,7 +13,6 @@ public class Alphabet {
         char[] chars = input.toLowerCase().toCharArray();
 
         for (char c : chars) {
-
             int index = c - 'a';
 
             if (index >= 0 && index < REPLACEMENT_ALPHABET.length) {
@@ -26,5 +25,5 @@ public class Alphabet {
 
         return sb.toString();
     }
-	
+
 }
