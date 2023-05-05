@@ -1,0 +1,8 @@
+name: ChatBeautifier
+version: '2.0.0-STABLE'
+main: dev.eymen.ChatBeautifier
+api-version: 1.18
+authors: [Deliable]
+description: Beautify your chat
+website: eymen.dev
+softdepend: [PlaceholderAPI, Oraxen]

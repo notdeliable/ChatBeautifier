@@ -1,0 +1,30 @@
+#Don't forget to do /chatbeautifier reload after you're done!
+
+#Available features.
+features:
+  #If enabled, it'll replace each chat message with small caps.
+  small_caps_chat: false
+  #If enabled, it'll replace each keyword in chat messages that is located in replace_keywords.keywords with small caps ones.
+  #That won't affect the whole chat message, that will just affect that keyword.
+  small_caps_keywords: false
+  #If enabled, it'll enable custom font support.
+  custom_fonts: true
+
+#This will only work if features.replace_keywords is enabled.
+#BIG thanks to Muffin#3409 for suggesting this feature in #suggestions forum in our Discord!
+small_caps_keywords:
+  keywords:
+    #In this case, "Welcome Muffin!" will be replaced with "ᴡᴇʟᴄᴏᴍᴇ Muffin!".
+    - "welcome"
+
+#This will only work if features.custom_fonts is enabled.
+#This will load the fonts through custom_fonts folder in the plugin directory.
+custom_fonts:
+  auto_resource_pack:
+    #If enabled, the plugin will directly put the resource pack to ItemsAdder.
+    #This will only work with the new resource pack structure.
+    itemsadder: false
+    #If enabled, the plugin will directly put the resource pack to Oraxen.
+    oraxen: false
+  #Namespaces are basically identifiers for different resource pack parts.
+  namespace: custom_fonts
