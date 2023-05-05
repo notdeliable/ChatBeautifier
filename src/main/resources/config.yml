@@ -1,6 +1,0 @@
-#Don't forget to do /smallcaps reload after you're done!
-
-#Let's see what we got here.
-features:
-  #If enabled, it'll replace each chat message with small caps.
-  replace_chat: false
