@@ -1,4 +1,5 @@
-<p style="text-align: center;">
+![Introduction image](https://i.imgur.com/EvTJmzB.png)
+
 # ChatBeautifier
 Beautify your chat
 
@@ -10,4 +11,3 @@ This is a free & open source project, so I don't earn a revenue from this produc
 
 # Support
 Join my [Discord](https://discord.gg/bQNd3ZWwzq) to get support. However, it's not guaranteed that you will get support from directly me or our support team. We are volunteers.
-</p>
