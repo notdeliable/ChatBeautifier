@@ -1,6 +1,4 @@
 <p style="text-align: center;">
-![Introduction image](https://i.imgur.com/EvTJmzB.png)
-
 # ChatBeautifier
 Beautify your chat
 
