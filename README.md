@@ -1,4 +1,4 @@
-![Introduction image](https://i.imgur.com/EvTJmzB.png)
+![Introduction Image](https://i.imgur.com/EvTJmzB.png)
 
 # ChatBeautifier
 Beautify your chat
