@@ -8,7 +8,7 @@
 
 
 
-## CHATBEAUTIFIER
+# CHATBEAUTIFIER
 ### Beautify your chat.
 
 
