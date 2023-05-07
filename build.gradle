@@ -4,7 +4,7 @@ plugins {
 }
 
 group = 'dev.eymen'
-version = '2.0.0-STABLE'
+version = '2.0.1-STABLE'
 
 repositories {
     mavenCentral()

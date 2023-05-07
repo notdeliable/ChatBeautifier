@@ -69,8 +69,9 @@ public final class ChatBeautifier extends JavaPlugin {
         getLogger().info("Registered commands.");
         Bukkit.getPluginManager().registerEvents(new ChatEvent(), this);
         getLogger().info("Registered events.");
-        int pluginId = 18278;
+        int pluginId = 18409;
         Metrics metrics = new Metrics(this, pluginId);
+        metrics.addCustomChart(new Metrics.SimplePie("is_custom_font_feature_enabled", () -> String.valueOf(config.getBoolean("features.custom_font"))));
         getLogger().info("Registered bStats.");
         if (config.getBoolean("features.custom_fonts")) {
             Boolean isIaEnabledPl = Bukkit.getPluginManager().isPluginEnabled("ItemsAdder");

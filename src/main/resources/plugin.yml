@@ -5,4 +5,4 @@ api-version: 1.18
 authors: [Deliable]
 description: Beautify your chat
 website: eymen.dev
-softdepend: [PlaceholderAPI, Oraxen]
+softdepend: [ItemsAdder, Oraxen, PlaceholderAPI, MiniPlaceholders]
