@@ -1,3 +1,5 @@
+[![CodeFactor](https://www.codefactor.io/repository/github/notdeliable/chatbeautifier/badge)](https://www.codefactor.io/repository/github/notdeliable/chatbeautifier)
+
 ![Introduction Image](https://i.imgur.com/EvTJmzB.png)
 
 # ChatBeautifier
