@@ -1,8 +1,10 @@
-[![CodeFactor](https://www.codefactor.io/repository/github/notdeliable/chatbeautifier/badge)](https://www.codefactor.io/repository/github/notdeliable/chatbeautifier)
-
 <center>
 
 ![Information Image](https://i.imgur.com/yigtyZ7.png)
+
+
+
+[![CodeFactor](https://www.codefactor.io/repository/github/notdeliable/chatbeautifier/badge)](https://www.codefactor.io/repository/github/notdeliable/chatbeautifier)
 
 
 
@@ -12,7 +14,7 @@
 
 
 # BUILD
-Execute `gradlew shadowJar` in project directory, output file will be located on `build/libs` folder as `ChatBeautifier-VERSION-all.jar`
+Execute `gradlew shadowJar` in project directory, output file will be located on `build/libs` folder as `ChatBeautifier-VERSION-all.jar`.
 
 
 
@@ -47,9 +49,9 @@ This plugin has support for placeholders. [Click here](https://www.spigotmc.org/
 
 
 ## For people who don't know what a small caps is:
-**This is a normal text.**
+This is a normal text.
 
-**ᴛʜɪs ɪs ᴀ sᴍᴀʟʟ ᴄᴀᴘs ᴛᴇxᴛ.**
+ᴛʜɪs ɪs ᴀ sᴍᴀʟʟ ᴄᴀᴘs ᴛᴇxᴛ.
 
 
 
