@@ -56,7 +56,7 @@ public final class ChatBeautifier extends JavaPlugin {
             getLogger().severe("Couldn't register configuration files. More information should be located above.");
         }
         customFontManager = new CustomFontManager();
-        miniPlaceholders = new MiniPlaceholders();
+        miniPlaceholders = new MiniPlaceholders(this);
         smallCapsPlaceholderExp = new SmallCapsPlaceholderExp();
         commandAPICommands = new CommandAPICommands(this);
         if (config.getBoolean("features.custom_fonts")) {
@@ -74,8 +74,8 @@ public final class ChatBeautifier extends JavaPlugin {
         metrics.addCustomChart(new Metrics.SimplePie("is_custom_font_feature_enabled", () -> String.valueOf(config.getBoolean("features.custom_font"))));
         getLogger().info("Registered bStats.");
         if (config.getBoolean("features.custom_fonts")) {
-            Boolean isIaEnabledPl = Bukkit.getPluginManager().isPluginEnabled("ItemsAdder");
-            Boolean isOraxenEnabledPl = Bukkit.getPluginManager().isPluginEnabled("Oraxen");
+            boolean isIaEnabledPl = Bukkit.getPluginManager().isPluginEnabled("ItemsAdder");
+            boolean isOraxenEnabledPl = Bukkit.getPluginManager().isPluginEnabled("Oraxen");
             Boolean isIaEnabledConfig = config.getBoolean("custom_fonts.auto_resource_pack.itemsadder");
             Boolean isOraxenEnabledConfig = config.getBoolean("custom_fonts.auto_resource_pack.oraxen");
 
