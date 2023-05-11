@@ -25,6 +25,7 @@ public final class MiniPlaceholders {
         try {
             plugin.getLogger().info("MiniPlaceholders found, registering placeholders.");
             final Expansion expansion = Expansion.builder("customfonts")
+                    .filter(Player.class)
                     .globalPlaceholder("convertglobal", (queue, ctx) -> {
                         final String font;
                         final String input;
