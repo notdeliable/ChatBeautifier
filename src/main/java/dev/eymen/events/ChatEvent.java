@@ -1,5 +1,6 @@
 package dev.eymen.events;
 
+import dev.eymen.ChatBeautifier;
 import dev.eymen.smallcaps.Alphabet;
 import io.papermc.paper.event.player.AsyncChatEvent;
 import net.kyori.adventure.text.Component;
@@ -11,10 +12,14 @@ import org.bukkit.event.Listener;
 import java.util.StringJoiner;
 import java.util.regex.Pattern;
 
-import static dev.eymen.ChatBeautifier.instance;
+import static dev.eymen.Utils.mm;
 
 public class ChatEvent implements Listener {
-    MiniMessage mm = MiniMessage.miniMessage();
+    ChatBeautifier instance;
+
+    public ChatEvent(ChatBeautifier instance) {
+        this.instance = instance;
+    }
 
     @EventHandler
     public void smallCapsChat(AsyncChatEvent event) {

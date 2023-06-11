@@ -1,6 +1,7 @@
 package dev.eymen.customfont;
 
 import dev.dejvokep.boostedyaml.YamlDocument;
+import dev.eymen.ChatBeautifier;
 import io.th0rgal.oraxen.OraxenPlugin;
 import net.kyori.adventure.key.Key;
 import net.kyori.adventure.text.Component;
@@ -14,14 +15,17 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-import static dev.eymen.ChatBeautifier.instance;
-
 public class CustomFontManager {
+    ChatBeautifier instance;
+
+    public CustomFontManager(ChatBeautifier instance) {
+        this.instance = instance;
+    }
+
     public List<String> customFonts = new ArrayList<>();
-    public File[] customFontFiles = instance.custom_fonts.listFiles((d, name) -> name.endsWith(".ttf"));
+    public File[] customFontFiles = instance.custom_fonts.listFiles((file, name) -> name.endsWith(".ttf"));
     private YamlDocument fontConfigurationFile;
     public static String namespace;
-
 
     Boolean isIaEnabledPl = Bukkit.getPluginManager().isPluginEnabled("ItemsAdder");
     Boolean isOraxenEnabledPl = Bukkit.getPluginManager().isPluginEnabled("Oraxen");
@@ -32,6 +36,11 @@ public class CustomFontManager {
         customFonts.clear();
         for (File file : customFontFiles) {
             customFonts.add(file.getName().substring(0, file.getName().length() - 4));
+        }
+
+        if (customFonts.size() == 0) {
+            instance.getLogger().severe("Couldn't generate resource pack, because no font was found in 'custom_fonts' directory. Please add .ttf fonts for the custom fonts feature to work.");
+            return;
         }
 
         if (isIaEnabledPl && isIaEnabledConfig) {
@@ -49,11 +58,6 @@ public class CustomFontManager {
     }
 
     public void generateResourcePack(String packGenType) {
-        if (customFonts.size() == 0) {
-            instance.getLogger().severe("Couldn't generate resource pack, because no font was found in 'custom_fonts' directory. Please add .ttf fonts for the custom fonts feature to work.\n\nPlease note that this message may be logged a few times, because resource pack generation can be made for multiple supported plugins.");
-            return;
-        }
-
         namespace = instance.config.getString("custom_fonts.namespace");
 
         File fileNamespace;

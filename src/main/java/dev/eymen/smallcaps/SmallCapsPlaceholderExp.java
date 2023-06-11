@@ -2,10 +2,7 @@ package dev.eymen.smallcaps;
 
 import me.clip.placeholderapi.PlaceholderAPI;
 import me.clip.placeholderapi.expansion.PlaceholderExpansion;
-import org.bukkit.Bukkit;
 import org.bukkit.OfflinePlayer;
-
-import static dev.eymen.ChatBeautifier.instance;
 
 public class SmallCapsPlaceholderExp extends PlaceholderExpansion {
 	@Override
@@ -44,17 +41,5 @@ public class SmallCapsPlaceholderExp extends PlaceholderExpansion {
 			}
 		}
 		return "Invalid or no option provided.";
-	}
-
-	public void init() {
-		if (Bukkit.getPluginManager().getPlugin("PlaceholderAPI") != null) {
-			instance.getLogger().info("PlaceholderAPI found, registering placeholders.");
-			if (isRegistered()) {
-				instance.getLogger().warning("Couldn't register PlaceholderAPI placeholders, because they're already registered.");
-				return;
-			}
-			register();
-			instance.getLogger().info("Registered PlaceholderAPI placeholders.");
-		}
 	}
 }

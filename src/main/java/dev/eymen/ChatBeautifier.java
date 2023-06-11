@@ -18,7 +18,6 @@ import java.io.File;
 import java.io.IOException;
 
 public final class ChatBeautifier extends JavaPlugin {
-    public static ChatBeautifier instance;
     public YamlDocument config;
     public File custom_fonts = new File(getDataFolder(), "custom_fonts");
     public File resource_pack = new File(getDataFolder(), "resource_pack");
@@ -37,7 +36,6 @@ public final class ChatBeautifier extends JavaPlugin {
     @Override
     public void onEnable() {
         getLogger().info("Hey there!");
-        instance = this;
         try {
             config = YamlDocument.create(new File(getDataFolder(), "config.yml"), getResource("config.yml"),
                     GeneralSettings.DEFAULT, LoaderSettings.builder().setAutoUpdate(true).build(), DumperSettings.DEFAULT, UpdaterSettings.DEFAULT);
@@ -55,25 +53,30 @@ public final class ChatBeautifier extends JavaPlugin {
             e.printStackTrace();
             getLogger().severe("Couldn't register configuration files. More information should be located above.");
         }
-        customFontManager = new CustomFontManager();
+        customFontManager = new CustomFontManager(this);
         miniPlaceholders = new MiniPlaceholders(this);
-        smallCapsPlaceholderExp = new SmallCapsPlaceholderExp();
         commandAPICommands = new CommandAPICommands(this);
-        if (config.getBoolean("features.custom_fonts")) {
-            miniPlaceholders.init();
+        if (Bukkit.getPluginManager().getPlugin("PlaceholderAPI") != null) {
+            smallCapsPlaceholderExp = new SmallCapsPlaceholderExp();
+            getLogger().info("PlaceholderAPI found, registering placeholders.");
+            if (smallCapsPlaceholderExp.isRegistered()) {
+                getLogger().warning("Couldn't register PlaceholderAPI placeholders, because they're already registered.");
+                return;
+            }
+            smallCapsPlaceholderExp.register();
+            getLogger().info("Registered PlaceholderAPI placeholders.");
         }
-        smallCapsPlaceholderExp.init();
-        getLogger().info("Registered placeholders.");
         CommandAPI.onEnable();
         commandAPICommands.mainCommand.register();
         getLogger().info("Registered commands.");
-        Bukkit.getPluginManager().registerEvents(new ChatEvent(), this);
+        Bukkit.getPluginManager().registerEvents(new ChatEvent(this), this);
         getLogger().info("Registered events.");
         int pluginId = 18409;
         Metrics metrics = new Metrics(this, pluginId);
         metrics.addCustomChart(new Metrics.SimplePie("is_custom_font_feature_enabled", () -> String.valueOf(config.getBoolean("features.custom_font"))));
         getLogger().info("Registered bStats.");
         if (config.getBoolean("features.custom_fonts")) {
+            miniPlaceholders.init();
             boolean isIaEnabledPl = Bukkit.getPluginManager().isPluginEnabled("ItemsAdder");
             boolean isOraxenEnabledPl = Bukkit.getPluginManager().isPluginEnabled("Oraxen");
             Boolean isIaEnabledConfig = config.getBoolean("custom_fonts.auto_resource_pack.itemsadder");

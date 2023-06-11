@@ -3,6 +3,7 @@ package dev.eymen.commands;
 import dev.eymen.ChatBeautifier;
 import dev.eymen.customfont.CustomFontManager;
 import dev.eymen.smallcaps.Alphabet;
+import dev.eymen.smallcaps.SmallCapsPlaceholderExp;
 import dev.jorel.commandapi.CommandAPI;
 import dev.jorel.commandapi.CommandTree;
 import dev.jorel.commandapi.arguments.*;
@@ -80,7 +81,16 @@ public class CommandAPICommands {
                             instance.miniPlaceholders.init();
                             sender.sendMessage(mm.deserialize("<green>Reloaded MiniPlaceholders placeholders!"));
                         }
-                        instance.smallCapsPlaceholderExp.init();
+                        if (Bukkit.getPluginManager().getPlugin("PlaceholderAPI") != null) {
+                            SmallCapsPlaceholderExp smallCapsPlaceholderExp = new SmallCapsPlaceholderExp();
+                            instance.getLogger().info("PlaceholderAPI found, registering placeholders.");
+                            if (smallCapsPlaceholderExp.isRegistered()) {
+                                instance.getLogger().warning("Couldn't register PlaceholderAPI placeholders, because they're already registered.");
+                                return;
+                            }
+                            smallCapsPlaceholderExp.register();
+                            instance.getLogger().info("Registered PlaceholderAPI placeholders.");
+                        }
                         sender.sendMessage(mm.deserialize("<green>Reloaded PlaceholderAPI placeholders!"));
                     })
             )
