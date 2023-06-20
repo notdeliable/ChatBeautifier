@@ -23,7 +23,7 @@ public class CustomFontManager {
     }
 
     public List<String> customFonts = new ArrayList<>();
-    public File[] customFontFiles = instance.custom_fonts.listFiles((file, name) -> name.endsWith(".ttf"));
+    public File[] customFontFiles;
     private YamlDocument fontConfigurationFile;
     public static String namespace;
 
@@ -33,6 +33,7 @@ public class CustomFontManager {
     Boolean isOraxenEnabledConfig = instance.config.getBoolean("custom_fonts.auto_resource_pack.oraxen");
 
     public void init() {
+        customFontFiles = instance.custom_fonts.listFiles((file, name) -> name.endsWith(".ttf"));
         customFonts.clear();
         for (File file : customFontFiles) {
             customFonts.add(file.getName().substring(0, file.getName().length() - 4));
